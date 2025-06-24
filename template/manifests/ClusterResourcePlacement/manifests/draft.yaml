@@ -1,0 +1,23 @@
+templateName: "clusterResourcePlacement-manifests"
+description: "This template is used to create a clusterResourcePlacement for an application"
+versions: ["0.0.1"]
+defaultVersion: "0.0.1"
+type: "manifest"
+variables:
+  - name: "PLACEMENTNAME"
+    type: "string"
+    kind: "kubernetesResourceName"
+    description: "the name of the application"
+    versions: ">=0.0.1"
+  - name: "NAMESPACE"
+    type: "string"
+    kind: "kubernetesNamespace"
+    default:
+      value: default
+    description: " the namespace to distribute via placement"
+    versions: ">=0.0.1"
+  - name: "CLUSTERNAMES"
+    type: "clusterNameList"
+    kin: ""
+    description: " the names of clusters that will receive the placement"
+    versions: ">=0.0.1"   

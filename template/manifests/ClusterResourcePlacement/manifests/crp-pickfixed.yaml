@@ -1,0 +1,14 @@
+apiVersion: placement.kubernetes-fleet.io/v1
+kind: ClusterResourcePlacement
+metadata:
+  name: "{{ .Config.GetVariableValue "PLACEMENTNAME" }}"
+spec:
+  resourceSelectors:
+    - group: ""
+      kind: Namespace
+      version: v1          
+      name: "{{ .Config.GetVariableValue "NAMESPACE"}}"
+  policy:
+    placementType: PickFixed
+    clusterNames: 
+      "{{ .Config.GetVariableValue "CLUSTERNAMES"}}"

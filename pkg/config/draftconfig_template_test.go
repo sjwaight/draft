@@ -69,6 +69,7 @@ var validVariableKinds = map[string]bool{
 	"resourceLimit":              true,
 	"workflowAuthType":           true,
 	"urlPath":                    true,
+	"clusterNameList":			  true,
 }
 
 /*
