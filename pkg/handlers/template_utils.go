@@ -86,6 +86,12 @@ func loadTemplates() error {
 		}
 
 		templateConfigs[strings.ToLower(draftConfig.TemplateName)] = newTemplate
+		
+		// Special case: also register app-routing-ingress template as webapp_routing for backward compatibility
+		if draftConfig.TemplateName == "app-routing-ingress" && strings.Contains(path, "webapp_routing") {
+			templateConfigs["webapp_routing"] = newTemplate
+		}
+		
 		return nil
 	})
 }
